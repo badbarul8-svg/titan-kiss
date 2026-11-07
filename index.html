@@ -9492,7 +9492,7 @@ img{max-width:100%;display:block}
 @keyframes tdot{0%{opacity:0;transform:scale(.2)}12%,85%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
 @keyframes thinkwob{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-3px)}}
 @media(max-width:560px){.gimg .think{left:var(--txm,38%);top:var(--tym,0%);width:var(--twm,32%)}}
-@media (prefers-reduced-motion:reduce){.gimg.live img,.gimg.live .lamp,.gimg.live::before,.think,.think .scr,.think .dt{animation:none}.think .scr{stroke-dashoffset:0}.think .dt{opacity:1}}
+@media (prefers-reduced-motion:reduce) and (max-width:0px){.gimg.live img,.gimg.live .lamp,.gimg.live::before,.think,.think .scr,.think .dt{animation:none}.think .scr{stroke-dashoffset:0}.think .dt{opacity:1}}
 .voices{max-width:44rem;margin:46px auto 0;background:#fff;border-radius:20px;padding:28px;border:1px dashed #fca5a5}
 .voices h3{font-size:24px;text-align:center;margin-bottom:18px;color:#0f172a}
 .voices ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
@@ -9525,7 +9525,7 @@ img{max-width:100%;display:block}
 .clips.go .clp{animation:clipin .6s cubic-bezier(.34,1.56,.64,1) calc(var(--n)*.18s) both,clipspot 8.4s ease-in-out calc(1.6s + var(--n)*1.2s) infinite}
 @keyframes clipin{0%{opacity:0;transform:scale(1.4) rotate(-7deg)}100%{opacity:1;transform:scale(1.03) rotate(0)}}
 @keyframes clipspot{0%,14%,100%{opacity:1;transform:scale(1.03) rotate(0);filter:none}5%{transform:scale(1.12) rotate(-1.6deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.55)) brightness(1.08)}9%{transform:scale(1.1) rotate(1deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.55)) brightness(1.08)}}
-@media (prefers-reduced-motion:reduce){.clips .clp{display:none}}
+@media (prefers-reduced-motion:reduce) and (max-width:0px){.clips .clp{display:none}}
 .cmp-r .gimg{background:radial-gradient(110% 80% at 50% 30%,#16a34a,#052e16 75%);animation:floaty 5s ease-in-out infinite}
 .cmp ul{list-style:none;padding:0;margin:0;display:grid;gap:11px;position:relative}
 .cmp li{display:flex;gap:9px;font-size:18px;line-height:1.3}
@@ -9706,7 +9706,7 @@ img{max-width:100%;display:block}
 .fc2 .gimg .fimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
 .fc2 .gimg .nimg{position:absolute;left:50%;top:8%;height:138%;width:auto;max-width:none;transform:translateX(-50%);transform-origin:50% 30%;filter:drop-shadow(0 10px 24px rgba(0,0,0,.45));animation:stoppush 2.8s ease-in-out infinite}
 @keyframes stoppush{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.04)}}
-@media (prefers-reduced-motion:reduce){.fc2 .gimg .nimg{animation:none}}
+@media (prefers-reduced-motion:reduce) and (max-width:0px){.fc2 .gimg .nimg{animation:none}}
 .fc2.no .gimg{background:radial-gradient(110% 80% at 50% 30%,#991b1b,#1c0a0a 75%)}
 .fc2 .fb{padding:22px;flex:1}
 .fc2 h3{font-size:24px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
@@ -10039,7 +10039,7 @@ footer h2{color:#fff;font-size:30px;margin-bottom:8px}
 @keyframes biglow{0%,100%{text-shadow:0 0 0 rgba(250,204,21,0)}50%{text-shadow:0 0 22px rgba(250,204,21,.75),0 0 44px rgba(250,204,21,.35)}}
 
 /* ===== reduced motion ===== */
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion: reduce) and (max-width:0px){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv,.js .tcard,.js .cmp-r li{opacity:1!important;transform:none!important}
   .tcard::after{transform:none!important}.tcard::before{transform:none!important}
@@ -10760,7 +10760,7 @@ footer h2{color:#fff;font-size:30px;margin-bottom:8px}
 
 <script>
 (function(){
-var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var RM=false; /* animasi sentiasa jalan, walaupun peranti set kurangkan animasi */
 function io(el,th,cb,once){if(!el)return;if(!('IntersectionObserver' in window)){cb();return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cb(e.target);if(once!==false)o.unobserve(e.target)}})},{threshold:th});o.observe(el)}
 
 /* reveal */
